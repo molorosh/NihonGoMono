@@ -24,9 +24,50 @@ body {
 }
 
 h1 {
-	color: blue;
+	color: black;
+}
+
+h1 rt {
+	color: silver;
 }
 
 p {
 	font-weight: bold;
 }
+
+.menu_title {
+	border-radius: 10px 0px 0px 10px;
+	background: #73AD21;
+	padding: 4px 14px 4px 14px; 
+	color: white;
+}
+
+.menu_end {
+	border-radius: 0px 10px 10px 0px;
+	background: #73AD21;
+	padding: 4px 14px 4px 14px; 
+	color: white;
+}
+
+.menu_this {
+	font-weight: bold;
+	border-top: 4px solid #73AD21;
+	border-bottom: 6px solid #73AD21;
+	padding: 3px 4px 3px 4px; 
+	background-color: gold;
+	margin: 0px;
+	color: black;
+}
+
+.menu_other {
+	border-top: 1px solid #73AD21;
+	border-bottom: 1px solid #73AD21;
+	padding: 3px 4px 3px 4px; 
+	margin: 0px;
+	color: white;
+}
+
+.menu_other a {
+	color: blue;
+}
+
