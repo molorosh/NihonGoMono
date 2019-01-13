@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/nihongomono.css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"> /* just an import */ </script>
 <script type="text/javascript" src="js/nihongononichi.js"> /* just an import */ </script>
 <script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
 <title>日本語物</title>
@@ -44,8 +45,10 @@
 	ですか。
 </h2>
 
-<p class="resizable" id="id_p_date">???</p>
-<p class="resizable" id="id_p_date_english"></p>
+<div id="id_div_mysteryDate">
+	<p class="resizable" id="id_p_date">???</p>
+	<p class="resizable" id="id_p_date_english"></p>
+</div>
 
 <p>
 	<button class="nannichi_button" onclick="nannichi('yesterday');">
