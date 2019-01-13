@@ -52,6 +52,7 @@ var NihonGoNoNichi = (function () {
 			obj.isValid = false;
 		}else{
 			obj.debugStr = "(*** " + the_date.toString() + " ***)";
+			obj.englishStr = the_date.toString().substr(0,15);
 			obj.isValid = true;
 			obj.year = the_date.getFullYear();
 			obj.month = the_date.getMonth() + 1;
@@ -74,26 +75,26 @@ var NihonGoNoNichi = (function () {
 				}
 			}
 			// year
-			obj.formattedHtml = "<span class='spYear'>" + obj.year + "<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby></span>";
+			obj.formattedHtml = "<span id='id_nannichi_span_year' onclick='nannichi_showFurigana(this)' class='spYear hideFurigana'>" + obj.year + "<ruby>年<rp>(</rp><rt>ねん</rt><rp>)</rp></ruby></span>";
 			// month
-			obj.formattedHtml += "<span class='spPreMonthSpacer'>&nbsp;</span>";
+			obj.formattedHtml += "<span class='spPreMonthSpacer'>&nbsp;&nbsp;</span>";
 			if(obj.month == 9){
-				obj.formattedHtml += "<span class='spMonth'><ruby>" + obj.month + "月<rp>(</rp><rt>くがつ</rt><rp>)</rp></ruby></span>";
+				obj.formattedHtml += "<span id='id_nannichi_span_month' onclick='nannichi_showFurigana(this)' class='spMonth hideFurigana'><ruby>" + obj.month + "月<rp>(</rp><rt>くがつ</rt><rp>)</rp></ruby></span>";
 			}else{
-				obj.formattedHtml += "<span class='spMonth'><ruby>" + obj.month + "<rp>(</rp><rt>" + month_name[obj.month] + "</rt><rp>)</rp>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby></span>";
+				obj.formattedHtml += "<span id='id_nannichi_span_month' onclick='nannichi_showFurigana(this)' class='spMonth hideFurigana'><ruby>" + obj.month + "<rp>(</rp><rt>" + month_name[obj.month] + "</rt><rp>)</rp>月<rp>(</rp><rt>がつ</rt><rp>)</rp></ruby></span>";
 			}
 			// date
-			obj.formattedHtml += "<span class='spPreDateSpacer'>&nbsp;</span>";
+			obj.formattedHtml += "<span class='spPreDateSpacer'>&nbsp;&nbsp;</span>";
 			if(obj.date_mode == "unique"){
-				obj.formattedHtml += "<span class='spDate'><ruby>" + obj.date + "日<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp></ruby></span>";
+				obj.formattedHtml += "<span id='id_nannichi_span_date' onclick='nannichi_showFurigana(this)' class='spDate hideFurigana'><ruby>" + obj.date + "日<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp></ruby></span>";
 			}else if(obj.date_mode == "ka"){
-				obj.formattedHtml += "<span class='spDate'><ruby>" + obj.date + "<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp>日<rp>(</rp><rt>か</rt><rp>)</rp></ruby></span>";
+				obj.formattedHtml += "<span id='id_nannichi_span_date' onclick='nannichi_showFurigana(this)' class='spDate hideFurigana'><ruby>" + obj.date + "<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp>日<rp>(</rp><rt>か</rt><rp>)</rp></ruby></span>";
 			}else{
-				obj.formattedHtml += "<span class='spDate'><ruby>" + obj.date + "<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby></span>";
+				obj.formattedHtml += "<span id='id_nannichi_span_date' onclick='nannichi_showFurigana(this)' class='spDate hideFurigana'><ruby>" + obj.date + "<rp>(</rp><rt>" + date_name[obj.date] + "</rt><rp>)</rp>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby></span>";
 			}
 			// day
-			obj.formattedHtml += "<span class='spPreWeekdaySpacer'>&nbsp;</span>";
-			obj.formattedHtml += "<span class='spWeekday'><ruby>" + weekday_kanji[obj.weekday] + "<rp>(</rp><rt>" + weekday_name[obj.weekday] + "</rt><rp>)</rp>曜<rp>(</rp><rt>よう</rt><rp>)</rp>日<rp>(</rp><rt>び</rt><rp>)</rp></ruby></span>";
+			obj.formattedHtml += "<span class='spPreWeekdaySpacer'>&nbsp;&nbsp;</span>";
+			obj.formattedHtml += "<span id='id_nannichi_span_weekday' onclick='nannichi_showFurigana(this)' class='spWeekday hideFurigana'><ruby>" + weekday_kanji[obj.weekday] + "<rp>(</rp><rt>" + weekday_name[obj.weekday] + "</rt><rp>)</rp>曜<rp>(</rp><rt>よう</rt><rp>)</rp>日<rp>(</rp><rt>び</rt><rp>)</rp></ruby></span>";
 		}
 		return obj;
 	};

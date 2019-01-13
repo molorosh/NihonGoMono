@@ -71,3 +71,17 @@ p {
 	color: blue;
 }
 
+.showFurigana rt {
+	visibility: visible;
+}
+
+.hideFurigana rt {
+	visibility: hidden;
+}
+
+#id_span_date_english {
+	visibility: hidden;
+}
+
+
+
