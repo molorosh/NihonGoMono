@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/nihongomono.css">
+<script type="text/javascript" src="js/nihongononichi.js"> /* just an import */ </script>
 <script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
 <title>日本語物</title>
 </head>
@@ -32,10 +33,18 @@
 <p id="id_p_date">???</p>
 
 <p>
-	<button onclick="nannichi('yesterday');">YESTERDAY</button>
-	<button onclick="nannichi('random');">RANDOM</button>
-	<button onclick="nannichi('today');">TODAY</button>
-	<button onclick="nannichi('tomorrow');">TOMORROW</button>
+	<button class="nannichi_button" onclick="nannichi('yesterday');">
+		<ruby>昨日<rp>(</rp><rt>きのう</rt><rp>)</rp></ruby>
+	</button>
+	<button class="nannichi_button" onclick="nannichi('random');">
+		ランダム
+	</button>
+	<button class="nannichi_button" onclick="nannichi('today');">
+		<ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>
+	</button>
+	<button class="nannichi_button" onclick="nannichi('tomorrow');">
+		<ruby>明<rp>(</rp><rt>あ</rt><rp>)</rp>日<rp>(</rp><rt>した</rt><rp>)</rp></ruby>
+	</button>
 </p>
 </div>
 
