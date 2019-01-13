@@ -26,6 +26,13 @@
 	<p>
 		<span class="menu_title">メニュー</span><span class="menu_other"><a href="./">ホメパゲ</a></span><span class="menu_this">何日</span><span class="menu_end">&nbsp;</span>
 	</p>
+	<p class="para_settings">&#9881; <span id="id_fontsize_title">フォントサイズ</span>: 
+		<span class="pointyClicky fontSizer fontSizerSelected" onclick="resizeContent('medium', this)">中</span> 
+		| <span class="pointyClicky fontSizer" onclick="resizeContent('large', this)">大</span> 
+		| <span class="pointyClicky fontSizer" onclick="resizeContent('x-large', this)">大大</span> 
+		| <span class="pointyClicky fontSizer" onclick="resizeContent('xx-large', this)">大大大</span>
+		| <span class="pointyClicky fontSizer" onclick="resizeContent('300%', this)">巨大</span> 
+	</p>
 </div>
 
 <div id="id_div_content">
@@ -37,8 +44,8 @@
 	ですか。
 </h2>
 
-<p id="id_p_date">???</p>
-<p id="id_p_date_english"></p>
+<p class="resizable" id="id_p_date">???</p>
+<p class="resizable" id="id_p_date_english"></p>
 
 <p>
 	<button class="nannichi_button" onclick="nannichi('yesterday');">

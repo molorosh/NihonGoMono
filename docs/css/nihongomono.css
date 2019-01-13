@@ -71,8 +71,31 @@ p {
 	color: blue;
 }
 
+.para_settings {
+	color: #abcdef;
+	border-radius: 4px;
+	padding: 2px 4px 2px 4px;
+}
+
+#id_fontsize_title {
+	font-size: small;
+}
+
 .showFurigana rt {
 	visibility: visible;
+}
+
+.hideFurigana {
+	cursor: pointer;
+}
+
+.pointyClicky{
+	cursor: pointer;
+}
+
+.fontSizerSelected{
+	background: cornsilk;
+	font-weight: bold;
 }
 
 .hideFurigana rt {
