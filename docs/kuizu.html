@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/nihongomono.css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"> /* just an import */ </script>
+<script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
+<script type="text/javascript" src="js/nihongonokuizunodata.js"> /* just an import */ </script>
+<script type="text/javascript" src="js/nihongonokuizu.js"> /* just an import */ </script>
+<title>日本語物</title>
+</head>
+
+<body>
+
+<div id="id_div_everything">
+
+<div id="id_div_header">
+<h1>
+	<ruby>
+	日本<rp>(</rp><rt>にほん</rt><rp>)</rp>
+	語<rp>(</rp><rt>ご</rt><rp>(</rp>
+	物<rp>(</rp><rt>もの</rt><rp>(</rp>
+	</ruby>
+</h1>
+</div>
+
+<div id="id_div_menu">
+	<p>
+		<span class="menu_title">メニュー</span><span class="menu_other"><a href="./">ホメパゲ</a></span><span class="menu_other"><a href="./">何日</a></span><span class="menu_this">クイズ</span><span class="menu_end">&nbsp;</span>
+	</p>
+</div>
+
+<div id="id_div_content">
+
+<h2>クイズ〜
+	<ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp>字<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>
+	は
+	<ruby>何<rp>(</rp><rt>なん</rt><rp>)</rp></ruby>
+	ですか。
+</h2>
+
+<div id="id_div_selectQuiz">
+	<p id="id_p_selectQuiz">
+	テーマ <select id="id_select_quizTheme"></select>
+	<button class="kuizu_button" onclick="kuizuSelect();">
+		スタート
+	</button>
+	</p>
+</div>
+
+<div id="id_div_quizContent">
+
+</div>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+	$( document ).ready(function() {
+		kuizuSelectSetup();
+	});
+
+</script>
+
+</body>
+
+</html>

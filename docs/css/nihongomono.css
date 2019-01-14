@@ -106,5 +106,10 @@ p {
 	visibility: hidden;
 }
 
+#id_div_quizContent {
+	border: 2px green solid;
+	margin: 5px;
+}
+
 
 
