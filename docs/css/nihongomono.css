@@ -109,6 +109,25 @@ p {
 #id_div_quizContent {
 	border: 2px green solid;
 	margin: 5px;
+	text-align: left;
+}
+
+.type_answer {
+	color: blue;
+	background-color: cornsilk;
+	margin: 5px;
+}
+
+.type_hiragana {
+	color: white;
+	background-color: black;
+	margin: 5px;
+}
+
+.type_kanji {
+	color: yellow;
+	background-color: green;
+	margin: 5px;
 }
 
 
