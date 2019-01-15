@@ -109,25 +109,79 @@ p {
 #id_div_quizContent {
 	border: 2px green solid;
 	margin: 5px;
+	background-color: silver;
 	text-align: left;
 }
 
-.type_answer {
-	color: blue;
-	background-color: cornsilk;
+.kuizu_hr {
+	clear: both;
+	float: left;
+	display: block; 
+	color: yellow;
+	background-color: yellow;
+	width: 100%;
+}
+
+.type_undo {
+	color: red;
+	background-color: white;
 	margin: 5px;
+	width: auto;
+	float: left;
+}
+
+.type_answer {
+	color: black;
+	background-color: white;
+	margin: 5px;
+	width: auto;
+	float: left;
+}
+
+.cell_title {
+	color: black;
+	background-color: white;
+	border: 1px dashed black;
+	width:auto;
+}
+
+.cell_content {
+	color: black;
+	background-color: white;
+	border: 1px dashed black;
+}
+
+.undo_title {
+	color: red;
+	background-color: white;
+	border: 1px dashed black;
+	width:auto;
+}
+
+.undo_cell_content {
+	color: red;
+	background-color: white;
+	border: 1px dashed black;
 }
 
 .type_hiragana {
-	color: white;
-	background-color: black;
+	color: black;
+	background-color: white;
+	border: 1px dashed blue;
 	margin: 5px;
+	padding: 3px;
+	width: auto;
+	float: left;
 }
 
 .type_kanji {
-	color: yellow;
-	background-color: green;
+	color: black;
+	background-color: white;
+	border: 1px dashed blue;
+	padding: 3px;
 	margin: 5px;
+	width: auto;
+	float: left;
 }
 
 

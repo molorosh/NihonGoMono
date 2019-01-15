@@ -17,7 +17,7 @@ var kuizo_data = [
 			{ text: 'いろ', answers: ['Colour'], type: 'hiragana' },
 			{ text: '色', answers: ['Colour'], type: 'kanji' },
 			
-			{ text: 'いろ', answers: ['White'], type: 'hiragana' },
+			{ text: 'しろ', answers: ['White'], type: 'hiragana' },
 			{ text: '白', answers: ['White'], type: 'kanji' },
 			
 			{ text: 'あか', answers: ['Red'], type: 'hiragana' },
