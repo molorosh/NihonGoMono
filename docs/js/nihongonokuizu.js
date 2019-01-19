@@ -67,7 +67,7 @@ function kuizuSelect(){
 		//console.log(randomPhrasesIndexes);
 		// answers
 		for(var x = 0, xMax = data.answers.length; x < xMax; x++){
-			var spn = $("<div id='a_" + randomAnswerIndexes[x] + "' ondrop='kuizu_drop(event)' ondragover='kuizu_allowDrop(event)' class='type_" + data.answers[randomAnswerIndexes[x]].type + "'></div>");
+			var spn = $("<div id='a_" + randomAnswerIndexes[x] + "' ondrop='kuizu_drop(event)' ondragover='kuizu_allowDrop(event)' class='type_" + data.answers[randomAnswerIndexes[x]].type + " kuizoTarget'></div>");
 			var cell_title = $("<div class='cell_title'></div>");
 			cell_title.append(data.answers[randomAnswerIndexes[x]].text);
 			var cell_content = $("<div id='cell_content_a" + randomAnswerIndexes[x] + "' class='cell_content'></div>");
@@ -95,15 +95,36 @@ function kuizu_drag(ev){
 	ev.dataTransfer.setData("text", ev.target.id);
 }
 
+function getParentElement(elem, className){
+	var parent = null;
+	// walk up the parents until we find a "kuizoTarget" class
+	var candidate = elem.parentElement;
+	if(candidate != null){
+		var classes = candidate.classList;
+		if(classes.contains(className)){
+			parent = candidate;
+		}else{
+			parent = getParentElement(candidate, className);
+		}
+	}
+	return parent;
+}
+
 function kuizu_drop(ev){
 	console.log('kuizu_drop(ev)');
 	console.log(ev.target);
 	ev.preventDefault();
     var id_of_dragged_element = ev.dataTransfer.getData("text");
 	var id_of_target_element = ev.target.id;
-	var cell_content_div = $("#cell_content_" + id_of_dragged_element);
-    //cell_content_div.append(document.getElementById(id_of_dragged_element));
-	ev.target.appendChild(document.getElementById(id_of_dragged_element));
+	// walk up the parents until we find a "kuizoTarget" class
+	var parent = getParentElement(ev.target, "kuizoTarget");
+	if(parent != null){
+		id_of_target_element = parent.id;
+		var cell_content_div = $("#cell_content_" + id_of_dragged_element);
+		//cell_content_div.append(document.getElementById(id_of_dragged_element));
+		parent.appendChild(document.getElementById(id_of_dragged_element));
+		//ev.target.appendChild(document.getElementById(id_of_dragged_element));
+	}
 	kuizu_debug("drop dragged_id=" + id_of_dragged_element + ", target_id=" + id_of_target_element);
 }
 
