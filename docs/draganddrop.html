@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	<!-- jQuery -->
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"> /* just an import */ </script>
-    <title>日本語物</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	
+	<script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
+	<script type="text/javascript" src="js/nihongonokuizunodata.js"> /* just an import */ </script>
+	<script type="text/javascript" src="js/nihongonokuizu.js"> /* just an import */ </script>
+	<link rel="stylesheet" type="text/css" href="css/nihongomono.css">
+	<title>日本語物</title>
   </head>
   <body>
   
@@ -47,31 +49,37 @@
 				物<rp>(</rp><rt>もの</rt><rp>(</rp>
 			</ruby>
 		</h1>
-		<p class="lead">A small website for me and others who are learning the Japanese language.</p>
-		<p>It's still very much a work-in-progress...</p>
+		<p class="lead">This is a drag and drop test page</p>
+		
+		<div id="id_div_selectQuiz">
+			<p id="id_p_selectQuiz">
+			テーマ <select id="id_select_quizTheme"></select>
+			<button class="kuizu_button" onclick="kuizuSelect();">
+				スタート
+			</button>
+			</p>
+		</div>
+
+		<div id="id_div_quizContent">
+
+		</div>
+		
+		
 	  </div>
 	
-	<!-- Begin page content -->
-	<!--
-	<main role="main" class="flex-shrink-0">
-	  <div class="container">
-	    <p>&nbsp;</p>
-		<h1 class="mt-5">
-			<ruby>
-				日本<rp>(</rp><rt>にほん</rt><rp>)</rp>
-				語<rp>(</rp><rt>ご</rt><rp>(</rp>
-				物<rp>(</rp><rt>もの</rt><rp>(</rp>
-			</ruby>
-		</h1>
-		<p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>main &gt; .container</code>.</p>
-		<p>This is a paragraph about the navbar.</p>
-	  </div>
-	</main>
-	-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  
+	<script type="text/javascript">
+
+		$( document ).ready(function() {
+			kuizuSelectSetup();
+		});
+
+	</script>
+	
   </body>
 </html>
