@@ -143,6 +143,7 @@ p {
 	background-color: white;
 	border: 1px dashed black;
 	width:auto;
+	padding: 0px 10px 0px 10px;
 }
 
 .cell_content {
@@ -162,6 +163,7 @@ p {
 	color: red;
 	background-color: white;
 	border: 1px dashed black;
+	padding: 0px 10px 0px 10px;
 }
 
 .type_hiragana {
@@ -182,6 +184,14 @@ p {
 	margin: 5px;
 	width: auto;
 	float: left;
+}
+
+.kuizo_right {
+	background-color: palegreen;
+}
+
+.kuizo_wrong{
+	background-color: pink;
 }
 
 

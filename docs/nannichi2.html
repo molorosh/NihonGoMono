@@ -1,20 +1,21 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	
-	<script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
-	<script type="text/javascript" src="js/nihongonokuizunodata.js"> /* just an import */ </script>
-	<script type="text/javascript" src="js/nihongonokuizu.js"> /* just an import */ </script>
+	<!-- nihongomono stuff -->
 	<link rel="stylesheet" type="text/css" href="css/nihongomono.css">
-	<title>日本語物〜クイズ</title>
-  </head>
-  <body>
-  
-  <header>
+	<script type="text/javascript" src="js/nihongononichi.js"> /* just an import */ </script>
+	<script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
+	<title>日本語物〜何日?</title>
+</head>
+
+<body>
+
+	<header>
 	  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<a class="navbar-brand" href="#">日本語物</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,44 +57,58 @@
 				語<rp>(</rp><rt>ご</rt><rp>(</rp>
 				物<rp>(</rp><rt>もの</rt><rp>(</rp>
 			</ruby>
-			〜 
+			〜
 			-->
-			クイズ
+			<ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>
+			は
+			<ruby>何<rp>(</rp><rt>なん</rt><rp>)</rp>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>
+			ですか。
 		</h1>
-		<!-- this is activated by kuizo_is_debug = true -->
-		<!-- <p id="id_p_debug"></p> -->
-		<div id="id_div_selectQuiz">
-			<p id="id_p_selectQuiz">
-			テーマ <select id="id_select_quizTheme"></select>
-			<button class="kuizu_button" onclick="kuizuSelect();">
-				スタート
-			</button>
-			<button class="kuizu_button" onclick="kuizoCheck();">
-				〇×?
-			</button>
+		
+		<div>
+			<p class="para_settings">&#9881; <span id="id_fontsize_title">フォントサイズ</span>: 
+				<span class="pointyClicky fontSizer fontSizerSelected" onclick="resizeContent('medium', this)">中</span> 
+				| <span class="pointyClicky fontSizer" onclick="resizeContent('large', this)">大</span> 
+				| <span class="pointyClicky fontSizer" onclick="resizeContent('x-large', this)">大大</span> 
+				| <span class="pointyClicky fontSizer" onclick="resizeContent('xx-large', this)">大大大</span>
+				| <span class="pointyClicky fontSizer" onclick="resizeContent('300%', this)">巨大</span> 
 			</p>
 		</div>
+		
+		<div id="id_div_content">
 
-		<div id="id_div_quizContent">
 
+			<div id="id_div_mysteryDate">
+				<p class="resizable" id="id_p_date">???</p>
+				<p id="id_p_date_english"></p>
+			</div>
+
+			<p>
+				<button class="nannichi_button" onclick="nannichi('yesterday');">
+					<ruby>昨日<rp>(</rp><rt>きのう</rt><rp>)</rp></ruby>
+				</button>
+				<button class="nannichi_button" onclick="nannichi('random');">
+					ランダム
+				</button>
+				<button class="nannichi_button" onclick="nannichi('today');">
+					<ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>
+				</button>
+				<button class="nannichi_button" onclick="nannichi('tomorrow');">
+					<ruby>明<rp>(</rp><rt>あ</rt><rp>)</rp>日<rp>(</rp><rt>した</rt><rp>)</rp></ruby>
+				</button>
+			</p>
+			
 		</div>
+
 		
-		
-	  </div>
-	
-    <!-- Optional JavaScript -->
+	</div>
+
+	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/DragDropTouch.js"> /* just an import */ </script>
-	<script type="text/javascript">
-
-		$( document ).ready(function() {
-			kuizuSelectSetup();
-		});
-
-	</script>
 	
-  </body>
+</body>
+
 </html>

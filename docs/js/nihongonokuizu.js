@@ -1,3 +1,65 @@
+let kuizo_is_debug = false;
+let kuizo_selected = null;
+
+
+function kuizoIsCorrect(idQuestion, idAnswer){
+	//console.log(idQuestion + " : " + idAnswer);
+	var result = false;
+	var index_question = parseInt(idQuestion.slice(2));
+	var index_answer = parseInt(idAnswer.slice(2));
+	//console.log(index_question + " : " + index_answer);
+	var question_text = kuizo_selected.answers[index_question].text;
+	console.log("question_text: " + question_text);
+	var acceptible_answers = kuizo_selected.phrases[index_answer].answers;
+	//console.log("acceptible_answers:");
+	//console.log(acceptible_answers);
+	for(var x = 0, xMax = acceptible_answers.length; x < xMax; x++){
+		//console.log("acceptible_answer[" + x + "] = " + acceptible_answers[x]);
+		if(acceptible_answers[x] === question_text){
+			result = true;
+			break;
+		}		
+	}
+	//console.log("result = " + result);
+	return result;
+}
+
+function kuizoApplyResult(isCorrect, theAnswerId){
+	//console.log(isCorrect);
+	var className = "kuizo_wrong";
+	if(isCorrect == true){
+		className = "kuizo_right";
+	}
+	//console.log(className);
+	$("#" + theAnswerId).addClass(className);
+}
+
+function kuizoCheck(){
+	//console.log("kuizoCheck()");
+	// remove any existing answer formatting
+	$( ".type_any" ).removeClass( "kuizo_right kuizo_wrong" );
+	if(kuizo_selected != null){
+		// we need to find each of the elements that has the class="type_answer" and then check every descendant
+		var answers = document.getElementsByClassName("type_answer");
+		for(var x = 0, xMax = answers.length; x < xMax; x++){
+			var answer = answers[x];
+			var answer_id = answer.id;
+			var jQ_answer = $("#" + answer_id);
+			//console.log("answer_id = " + answer_id);
+			// find all descendants where class="type_any"
+			var jQ_answer_items = jQ_answer.find(".type_any");
+			//console.log("jQ_answer_items.length = " + jQ_answer_items.length);
+			for(var z = 0, zMax = jQ_answer_items.length; z < zMax; z++){
+				var jQ_answer_item = jQ_answer_items[z];
+				var jQ_answer_item_id = jQ_answer_item.id;
+				//console.log("jQ_answer_item_id = " + jQ_answer_item_id);
+				var result = kuizoIsCorrect(answer_id, jQ_answer_item_id);
+				kuizoApplyResult(result, jQ_answer_item_id);
+			}
+		}
+	}
+}
+
 function kuizuSelectSetup(){
 	//console.log("kuizuSelectSetup()");
 	for(var x = 0, xMax = kuizo_titles.length; x < xMax; x++){
@@ -37,7 +99,6 @@ function shuffle(array) {
   return array;
 }
 
-
 function kuizuSelect(){
 	var selectedVal = $("#id_select_quizTheme option:selected").val();
 	var selectedText = $("#id_select_quizTheme option:selected").text();
@@ -51,12 +112,13 @@ function kuizuSelect(){
 		}
 	}
 	if(data !== null){
+		kuizo_selected = data;
 		var main_div = $("#id_div_quizContent");
 		main_div.empty();
 		// add the "undo" cell_content
 		var undo = $("<div id='undo_cell' ondrop='kuizu_drop_undo(event)' ondragover='kuizu_allowDrop(event)' class='type_undo'></div>");
 		var undo_cell_title = $("<div class='undo_cell_content'></div>");
-		undo_cell_title.append("UNDO");
+		undo_cell_title.append("アンドゥ");
 		var undo_cell_content = $("<div class='undo_cell_content'></div>");
 		undo.append(undo_cell_title);
 		main_div.append(undo);
@@ -79,12 +141,11 @@ function kuizuSelect(){
 		main_div.append($("<hr class='kuizu_hr'>"));
 		// phrases
 		for(var x = 0, xMax = data.phrases.length; x < xMax; x++){
-			var spn = $("<div id='p_" + randomPhrasesIndexes[x] + "' draggable='true' ondragstart='kuizu_drag(event)' class='type_" + data.phrases[randomPhrasesIndexes[x]].type + "'></div>");
+			var spn = $("<div id='p_" + randomPhrasesIndexes[x] + "' draggable='true' ondragstart='kuizu_drag(event)' class=' type_any type_" + data.phrases[randomPhrasesIndexes[x]].type + "'></div>");
 			spn.append(data.phrases[randomPhrasesIndexes[x]].text);
 			main_div.append(spn);	
 		}
 	}
-	
 }
 
 // q.v.: https://www.w3schools.com/html/html5_draganddrop.asp
@@ -111,11 +172,13 @@ function getParentElement(elem, className){
 }
 
 function kuizu_drop(ev){
-	console.log('kuizu_drop(ev)');
-	console.log(ev.target);
+	//console.log('kuizu_drop(ev)');
+	//console.log(ev.target);
 	ev.preventDefault();
     var id_of_dragged_element = ev.dataTransfer.getData("text");
 	var id_of_target_element = ev.target.id;
+	// remove any marking-related markup
+	$("#" + id_of_dragged_element).removeClass( "kuizo_right kuizo_wrong" );
 	// walk up the parents until we find a "kuizoTarget" class
 	var parent = getParentElement(ev.target, "kuizoTarget");
 	if(parent != null){
@@ -136,6 +199,8 @@ function kuizu_drop_undo(ev){
 	//console.log(ev);
 	ev.preventDefault();
     var id_of_dragged_element = ev.dataTransfer.getData("text");
+	// remove any marking-related markup
+	$("#" + id_of_dragged_element).removeClass( "kuizo_right kuizo_wrong" );
 	var id_of_target_element = ev.target.id;
 	kuizu_debug("UNDO drop dragged_id=" + id_of_dragged_element + ", target_id=" + id_of_target_element);
 	//ev.target.appendChild(document.getElementById(id_of_dragged_element));
@@ -143,12 +208,14 @@ function kuizu_drop_undo(ev){
 }
 
 function kuizu_debug(msg){
-	var ts = new Date();
-	var ts_str = ts.toString();
-	// just get the "HH:mm:ss" from the date.toString()
-	var time_str = ts_str.slice(16,24);
-	var p_msg = "@" + time_str + " ~ " + msg;
-	$("#id_p_debug").text(p_msg);
+	if(kuizo_is_debug === true){
+		var ts = new Date();
+		var ts_str = ts.toString();
+		// just get the "HH:mm:ss" from the date.toString()
+		var time_str = ts_str.slice(16,24);
+		var p_msg = "@" + time_str + " ~ " + msg;
+		$("#id_p_debug").text(p_msg);
+	}
 }
 
 function kuizu_allowDrop(ev){

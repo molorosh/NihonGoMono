@@ -38,7 +38,7 @@ function nannichi(code){
 	para.innerHTML = the_date.formattedHtml;
 	// 
 	let english_html = "<button class='nannichi_button' onclick='nannichi_show_english();'><ruby>英<rp>(</rp><rt>えい</rt><rp>)</rp>語<rp>(</rp><rt>ご</rt><rp>(</rp></ruby></button>";
-	english_html += " <span id='id_span_date_english'>";
+	english_html += " <span class='resizable' id='id_span_date_english'>";
 	english_html += the_date.englishStr;
 	english_html += "</span>";
 	let para_english = document.getElementById("id_p_date_english");
