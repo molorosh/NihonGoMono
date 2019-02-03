@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/nihongomono.js"> /* just an import */ </script>
 	<script type="text/javascript" src="js/nihongonocanvas.js"> /* just an import */ </script>
 	<link rel="stylesheet" type="text/css" href="css/nihongomono.css">
+	<link rel="stylesheet" type="text/css" href="css/nihongomonocanvas.css">
 	<title>日本語物</title>
   </head>
   <body>
@@ -21,7 +22,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="./">ホメパゲ</a>
 			</li>
 			<li class="nav-item">
@@ -31,7 +32,7 @@
 			  <a class="nav-link" href="./draganddrop.html">クイズ</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="./canvas.html">キャンバス <span class="sr-only">(current)</span></a>
+			  <a class="nav-link active" href="./canvas.html">キャンバス <span class="sr-only">(current)</span></a>
 			</li>
 			<!--
 			<li class="nav-item">
@@ -64,10 +65,12 @@
 		</h1>
 		
 		<div id="id_div_canvas">
-		<canvas id="id_canvas">
-		
+		<canvas id="id_canvas" width="350" height="350">
+		Your web browser does not support Canvas web technologies... 
 		</canvas>
 		</div>
+		
+		<p>TODO: consider using <a href="https://konvajs.github.io/">KONVAjs</a></p>
 		
 	</div>
 	
